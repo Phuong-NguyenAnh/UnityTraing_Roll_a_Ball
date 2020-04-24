@@ -443,7 +443,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.981445e-29, y: 0, z: 0, w: 2.1e-44}
+  m_BoundingSphereOverride: {x: 3.15e-42, y: 1.05e-43, z: 6.018715e-36, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5409,7 +5409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1338222087
 PrefabInstance:
@@ -5481,7 +5481,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: a3e6a07635083894ba9d6d032de930fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a3e6a07635083894ba9d6d032de930fd,
         type: 3}

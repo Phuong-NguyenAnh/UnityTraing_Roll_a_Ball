@@ -10,6 +10,7 @@ public class PickUp : MonoBehaviour
     public Animator mAnimator;
 
     public GameObject firePrefab;
+    public GameObject explosionPrefab;
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class PickUp : MonoBehaviour
     {
         isDie = true;
         mAnimator.SetTrigger("Die");
+        if (isRed)
+        {
+            var explosion = Instantiate(explosionPrefab);
+            explosion.transform.position = transform.position;
+        }
     }
 
     public void DieFinish()

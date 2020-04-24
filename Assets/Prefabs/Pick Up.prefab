@@ -50,6 +50,7 @@ MonoBehaviour:
   mRenderer: {fileID: 1367761644860554706}
   mAnimator: {fileID: 3081465233561190041}
   firePrefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
+  explosionPrefab: {fileID: 100000, guid: c9d5cd88175043e4682f5575c3340d37, type: 3}
 --- !u!65 &3259909709416838975
 BoxCollider:
   m_ObjectHideFlags: 0
