@@ -10,15 +10,15 @@ public class MAWPlayer : MonoBehaviour
         Idle,
         Running,
         Die,
-        Spawn
+        Spawn,
+        Pause
     }
     public float speed;
-    public Text countText;
-    public Text winText;
     public GameObject pickUps;
     public Animator anim;
 
     private PlayerState currentState = PlayerState.Idle;
+    private PlayerState previousState = PlayerState.Idle;
 
     private int count;
 
@@ -26,7 +26,6 @@ public class MAWPlayer : MonoBehaviour
     {
         count = 0;
         SetCountText();
-        winText.text = "";
         SetPlayerState(PlayerState.Idle);
     }
 
@@ -45,11 +44,20 @@ public class MAWPlayer : MonoBehaviour
                 anim.SetTrigger("Spawn");
                 break;
             case PlayerState.Idle:
-            default:
                 anim.SetTrigger("Idle");
                 break;
+            case PlayerState.Pause:
+            default:
+                break;
         }
+        anim.enabled = state != PlayerState.Pause;
+        previousState = currentState == PlayerState.Pause ? previousState : currentState;
         currentState = state;
+    }
+
+    public void resume()
+    {
+        SetPlayerState(previousState);
     }
 
     public void OnDieEnd()
@@ -131,6 +139,6 @@ public class MAWPlayer : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + count.ToString();
+        // countText.text = "Count: " + count.ToString();
     }
 }

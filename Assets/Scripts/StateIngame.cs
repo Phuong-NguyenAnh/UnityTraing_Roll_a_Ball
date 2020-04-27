@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpsController : MonoBehaviour
+public class StateIngame : MonoBehaviour
 {
     public Camera mainCamera;
     public GameObject pickUpPrefab;
+    public GameObject pickUps;
+    public GameObject IngameMenu;
+
+    public MAWPlayer playerScript;
 
     void Update()
     {
@@ -19,9 +23,15 @@ public class PickUpsController : MonoBehaviour
                 Vector3 point = hit.point;
                 point.y = 0.5f;
                 var pickUp = Instantiate(pickUpPrefab, point, Quaternion.identity);
-                pickUp.transform.parent = gameObject.transform;
-                // Do something with the object that was hit by the raycast.
+                pickUp.transform.parent = pickUps.transform;
             }
         }
+    }
+
+    public void PausePressed()
+    {
+        playerScript.SetPlayerState(MAWPlayer.PlayerState.Pause);
+        IngameMenu.SetActive(true);
+        IngameMenu.GetComponent<IngameMenu>().backBtnPressedCallback = () => playerScript.resume();
     }
 }
