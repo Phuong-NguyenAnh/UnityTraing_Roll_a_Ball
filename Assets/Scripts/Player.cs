@@ -43,9 +43,11 @@ public class Player : MonoBehaviour
                 SetPlayerState(PlayerState.Idle);
                 break;
             case PlayerState.Idle:
+                anim.ResetTrigger("Run");
                 anim.SetTrigger("Idle");
                 break;
             case PlayerState.Running:
+                anim.ResetTrigger("Idle");
                 anim.SetTrigger("Run");
                 break;
             case PlayerState.Die:

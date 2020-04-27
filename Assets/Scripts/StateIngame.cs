@@ -19,6 +19,11 @@ public class StateIngame : MonoBehaviour
     {
         timerDisplay.text = "00:00";
         playedTime = 0;
+
+        foreach (Transform pickup in pickUps.transform)
+        {
+            Destroy(pickup.gameObject);
+        }
         playerScript.Init();
     }
 
