@@ -12,6 +12,8 @@ public class PickUp : MonoBehaviour
     public GameObject firePrefab;
     public GameObject explosionPrefab;
 
+    public int redDamage = 2;
+
     private void Start()
     {
         var random = new System.Random();

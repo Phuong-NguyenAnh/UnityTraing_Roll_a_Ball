@@ -6,6 +6,10 @@ public class MainMenu : MonoBehaviour
     public GameObject optionMenu;
     public GameObject stateIngame;
 
+    void OnEnable()
+    {
+        stateIngame.SetActive(false);
+    }
 
     public void PlayPressed()
     {

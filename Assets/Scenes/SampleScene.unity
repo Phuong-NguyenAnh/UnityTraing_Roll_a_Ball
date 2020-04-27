@@ -372,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &247779101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -462,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &292641844
 RectTransform:
   m_ObjectHideFlags: 0
@@ -936,8 +936,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5435787e+30, y: 1.3958761e+10, z: 8.0937406e+11,
-    w: 6.7406024e+22}
+  m_BoundingSphereOverride: {x: 0, y: 9.1e-44, z: 0.08984375, w: 0.15234375}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -6391,7 +6390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1040064798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6430,6 +6429,7 @@ MonoBehaviour:
   pickUps: {fileID: 1507985385}
   IngameMenu: {fileID: 247779100}
   playerScript: {fileID: 2037246848}
+  timerDisplay: {fileID: 992880004}
 --- !u!1 &1058836534
 GameObject:
   m_ObjectHideFlags: 0
@@ -8036,6 +8036,8 @@ MonoBehaviour:
   speed: 3
   pickUps: {fileID: 1507985385}
   anim: {fileID: 2037246847}
+  currentState: 0
+  mainMenu: {fileID: 292641847}
 --- !u!65 &2037246849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8065,6 +8067,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2037246851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037246846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb0ab9321e863a40bc4daddf2e70d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpDisplay: {fileID: 211237343}
+  maxHP: 10
 --- !u!1 &2058178141
 GameObject:
   m_ObjectHideFlags: 0

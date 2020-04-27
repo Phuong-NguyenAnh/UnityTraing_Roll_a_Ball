@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StateIngame : MonoBehaviour
 {
@@ -9,28 +9,46 @@ public class StateIngame : MonoBehaviour
     public GameObject pickUps;
     public GameObject IngameMenu;
 
-    public MAWPlayer playerScript;
+    public Player playerScript;
+
+    public Text timerDisplay;
+
+    private double playedTime = 0;
+
+    void OnEnable()
+    {
+        timerDisplay.text = "00:00";
+        playedTime = 0;
+        playerScript.Init();
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (playerScript.IsPlaying())
         {
-            RaycastHit hit;
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                Vector3 point = hit.point;
-                point.y = 0.5f;
-                var pickUp = Instantiate(pickUpPrefab, point, Quaternion.identity);
-                pickUp.transform.parent = pickUps.transform;
-            }
+            playedTime += Time.deltaTime;
+            timerDisplay.text = TimeSpan.FromSeconds(playedTime).ToString(@"mm\:ss");
         }
+
+        if (playerScript.IsAlive())
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Vector3 point = hit.point;
+                    point.y = 0.5f;
+                    var pickUp = Instantiate(pickUpPrefab, point, Quaternion.identity);
+                    pickUp.transform.parent = pickUps.transform;
+                }
+            }
     }
 
     public void PausePressed()
     {
-        playerScript.SetPlayerState(MAWPlayer.PlayerState.Pause);
+        playerScript.SetPlayerState(Player.PlayerState.Pause);
         IngameMenu.SetActive(true);
         IngameMenu.GetComponent<IngameMenu>().backBtnPressedCallback = () => playerScript.resume();
     }
